@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo</title>
+    <style>
+        body{
+            font: normal 18pt Arial;
+        }
+        input {
+            font: normal 18pt Arial;
+            width: 200px; 
+         }
+         input#btn1{
+            margin-top: 20px;
+         }
+         div#res {
+            margin-top: 20px;
+         }
+    </style>
+</head>
+<body>
+    <h1>Equação quadrática</h1>
+    <div> Coeficiente a</div>
+    <input id="txtn1" type="number">
+    <div>Coeficiente b</div>
+    <input id="txtn2" type="number">
+    <div>Coeficiente c</div>
+    <input id="txtn3" type="number"></br>
+    <input id="btn1" type="button" value="Calcular" onclick="calcular()">  
+    <div id="res"> 
+    <script>
+
+        function calcular(){
+         var txtn1 = window.document.getElementById('txtn1')
+         var txtn2 = window.document.getElementById('txtn2')
+         var txtn3 = window.document.getElementById('txtn3')
+         var r = window.document.getElementById('res')
+
+         var a = Number.parseFloat(txtn1.value)
+         var b = Number.parseFloat(txtn2.value)
+         var c = Number.parseFloat(txtn3.value)
+
+         var D = (b**2) - 4*a*c
+
+         var r1 = (-b + D**(1/2)) / (2*a)
+         var r2 = (-b - D**(1/2)) / (2*a)
+         r.innerHTML = `<p>O discriminante é ${D}</p>`
+         if(D>0){
+            r.innerHTML += `As raízes da equação são: ${r1} e ${r2}`
+         } else if(D==0){
+            r.innerHTML += `A equação tem duas raízes iguais, que equivalem a: ${r1}`
+         } else {
+           r.innerHTML +=`Não existe solução no conjunto dos números reais`
+         }
+        }
+
+    </script>
+</body>
+</html>
